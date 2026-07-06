@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.button {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.button:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.active {
+  background: #7c3aed;
+  color: white;
+  border-color: #7c3aed;
+}
+.active:hover {
+  background: #6d28d9;
+}

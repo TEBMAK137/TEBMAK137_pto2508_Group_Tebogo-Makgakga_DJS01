@@ -1,0 +1,13 @@
+{
+  "name": "djs01-2025-main",
+  "version": "1.0.0",
+  "description": "src ├── api │ └── podcastApi.js ├── assets ├── Components │ ├── EmptyState.jsx │ ├── ErrorState.jsx │ ├── Header.jsx │ ├── LoadingState.jsx │ ├── PodcastCard.jsx │ ├── PodcastGrid.jsx │ ├── PodcastModal.jsx │ └── PodcastPreviewCard.jsx (Note: there's both PodcastCard and PodcastPreviewCard? Possibly duplicates. We'll include both as per image) ├── constants │ └── genres.js ├── Utils (note capital U in image? Actually \"Utilis\" typo? The image says \"Utilis\" but likely \"utils\". We'll use \"utils\") │ └── formatDate.js ├── App.css ├── App.jsx ├── index.css ├── main.jsx",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

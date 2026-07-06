@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.app-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #5e2a84, #c23b77);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.app-header p {
+  color: #475569;
+  margin-top: 0.5rem;
+}
+
+/* Grid container uses proper responsive columns */
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.8rem;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Ensures each card fills its grid cell */
+podcast-card {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: inherit;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    visibility 0.2s,
+    opacity 0.2s ease;
+  padding: 1.2rem;
+}
+
+.modal-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-container {
+  background: #ffffff;
+  max-width: 880px;
+  width: 100%;
+  max-height: 90vh;
+  border-radius: 1.8rem;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+.modal-close {
+  position: sticky;
+  top: 1rem;
+  right: 1rem;
+  float: right;
+  background: white;
+  border: none;
+  font-size: 1.8rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.8rem 0.8rem 0 0;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.1s;
+  z-index: 2;
+}
+
+.modal-close:hover {
+  background: #f1f3f7;
+}
+
+.modal-inner {
+  padding: 0.5rem 2rem 2rem 2rem;
+  clear: both;
+  word-break: break-word;
+}
+
+.modal-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.modal-cover {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 1.2rem;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.modal-description {
+  color: #334155;
+  margin: 1rem 0 1.2rem;
+  line-height: 1.6;
+}
+
+.season-list {
+  margin-top: 1.5rem;
+  background: #f8fafc;
+  border-radius: 1.2rem;
+  padding: 1.2rem;
+  border: 1px solid #e9eef3;
+}
+
+.season-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #e9edf2;
+}
+
+.season-item:last-child {
+  border-bottom: none;
+}
+
+.season-name {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.season-episodes {
+  background: #e2e8f0;
+  padding: 0.2rem 0.8rem;
+  border-radius: 40px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.badge {
+  background: #f1f5f9;
+  padding: 0.2rem 0.7rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+}
+
+.seasons-badge {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.genre-tag {
+  background: #f1f1fe;
+  padding: 0.2rem 0.7rem;
+  border-radius: 30px;
+  font-size: 0.7rem;
+  color: #4c1d95;
+  display: inline-block;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+  transition: background 0.1s ease;
+}
+
+.genre-tag:hover {
+  background: #e0d9fe;
+}
+
+.meta-detail-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.3rem 0 0.8rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.75rem;
+  color: #7e8aa2;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+  .modal-inner {
+    padding: 0.5rem 1.2rem 1.5rem;
+  }
+  .modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .modal-cover {
+    width: 100px;
+    height: 100px;
+  }
+  .modal-title {
+    font-size: 1.6rem;
+  }
+  .podcast-grid {
+    gap: 1rem;
+  }
+}
