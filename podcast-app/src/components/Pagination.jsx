@@ -1,16 +1,6 @@
 import React from "react";
 import styles from "./Pagination.module.css";
 
-/**
- * Pagination component with numbered page buttons.
- *
- * @component
- * @param {Object} props
- * @param {number} props.currentPage - Active page number.
- * @param {number} props.totalPages - Total number of pages.
- * @param {Function} props.onPageChange - Handler called when page changes.
- * @returns {JSX.Element|null}
- */
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
   if (totalPages <= 1) return null;
 

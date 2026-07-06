@@ -1,5 +1,5 @@
 /**
- * Genre data – provided by the project spec.
+ * Genre data – from the project spec.
  * @module data
  */
 

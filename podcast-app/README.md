@@ -1,26 +1,22 @@
-# PodcastHub – Advanced Podcast Discovery
+# PodcastHub – DJS05 (React with Routing)
 
-A feature‑rich React app with live search, genre filtering, sorting, and pagination.  
-Data is fetched from `https://podcast-api.netlify.app`.
+A React podcast discovery app with client‑side routing, global state, search, filter, sort, pagination, and a detailed show view.
 
 ## Features
 
-- 🔍 **Live search** – partial title match
-- 🎛️ **Multi‑select genre filter**
-- 📅 **Sorting** – newest, title A–Z, title Z–A
-- 📄 **Pagination** – 12 items per page
-- 📱 **Fully responsive** – mobile, tablet, desktop
-- 🧠 **Centralised state** – React Context
-- 🎨 **CSS Modules** – scoped, maintainable styles
+- 🏠 **Homepage** – list podcasts with live search, genre filter, sorting, and pagination.
+- 🎙️ **Detail page** – full show info, seasons, and episodes.
+- 🌐 **React Router** – navigation between pages without reload.
+- 🧠 **PodcastContext** – shared state for podcasts, filters, and pagination.
+- 📱 **Responsive** – works on mobile, tablet, desktop.
 
 ## Setup
 
-```bash
+`bash`
 npm install
 npm run dev
-```
 
-DJS04-SOLUTION-.../
+DJS05-solution/
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
@@ -30,7 +26,7 @@ DJS04-SOLUTION-.../
 ├── vite.config.js
 └── src/
 ├── api/
-│ └── fetchPodcasts.js
+│ └── podcastApi.js
 ├── components/
 │ ├── GenreFilter.jsx
 │ ├── GenreFilter.module.css
@@ -48,11 +44,15 @@ DJS04-SOLUTION-.../
 │ └── SortSelect.module.css
 ├── context/
 │ └── PodcastContext.jsx
+├── pages/
+│ ├── Home.jsx
+│ ├── Home.module.css
+│ ├── ShowDetail.jsx
+│ └── ShowDetail.module.css
 ├── utils/
 │ ├── constants.js
 │ └── formatDate.js
 ├── App.jsx
-├── App.module.css
 ├── data.js
 ├── index.css
 └── main.jsx

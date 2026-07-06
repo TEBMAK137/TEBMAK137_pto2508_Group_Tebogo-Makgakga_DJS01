@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useMemo,
 } from "react";
-import { fetchAllPodcasts } from "../api/fetchPodcasts";
+import { fetchAllPodcasts } from "../api/podcastApi";
 import { SORT_OPTIONS, ITEMS_PER_PAGE } from "../utils/constants";
 
 /**
@@ -15,11 +15,11 @@ import { SORT_OPTIONS, ITEMS_PER_PAGE } from "../utils/constants";
 const PodcastContext = createContext(null);
 
 /**
- * Provider component that manages all podcast state.
+ * Provider component that manages all podcast state (list, filters, pagination).
  *
  * @component
  * @param {Object} props
- * @param {React.ReactNode} props.children - Child components.
+ * @param {React.ReactNode} props.children
  * @returns {JSX.Element}
  */
 export function PodcastProvider({ children }) {
@@ -31,7 +31,7 @@ export function PodcastProvider({ children }) {
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Fetch data on mount
+  // Fetch all podcasts on mount
   useEffect(() => {
     let mounted = true;
     async function load() {
@@ -51,7 +51,7 @@ export function PodcastProvider({ children }) {
     };
   }, []);
 
-  // Reset page when search/filter/sort changes
+  // Reset to page 1 when filters change
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, sortBy, selectedGenres]);
@@ -75,6 +75,9 @@ export function PodcastProvider({ children }) {
       case SORT_OPTIONS.NEWEST:
         result.sort((a, b) => new Date(b.updated) - new Date(a.updated));
         break;
+      case SORT_OPTIONS.OLDEST:
+        result.sort((a, b) => new Date(a.updated) - new Date(b.updated));
+        break;
       case SORT_OPTIONS.TITLE_ASC:
         result.sort((a, b) => a.title.localeCompare(b.title));
         break;
@@ -95,6 +98,7 @@ export function PodcastProvider({ children }) {
 
   const value = {
     podcasts: paginated,
+    allPodcasts,
     totalPages,
     currentPage,
     setCurrentPage,

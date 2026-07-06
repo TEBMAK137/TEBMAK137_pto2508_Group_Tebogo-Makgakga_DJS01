@@ -1,16 +1,7 @@
 import React from "react";
-import { GENRE_MAP } from "../api/fetchPodcasts";
+import { GENRE_MAP } from "../api/podcastApi";
 import styles from "./GenreFilter.module.css";
 
-/**
- * Multi‑select genre filter using toggle buttons.
- *
- * @component
- * @param {Object} props
- * @param {string[]} props.selectedGenres - Array of selected genre names.
- * @param {Function} props.onChange - Handler called when selection changes.
- * @returns {JSX.Element}
- */
 export default function GenreFilter({ selectedGenres, onChange }) {
   const allGenres = Object.values(GENRE_MAP);
 

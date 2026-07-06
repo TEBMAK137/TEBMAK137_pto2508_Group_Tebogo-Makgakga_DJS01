@@ -1,15 +1,6 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
 
-/**
- * Search input component with a magnifying glass icon.
- *
- * @component
- * @param {Object} props
- * @param {string} props.value - Current search query.
- * @param {Function} props.onChange - Handler called when input changes.
- * @returns {JSX.Element}
- */
 export default function SearchBar({ value, onChange }) {
   return (
     <div className={styles.container}>
